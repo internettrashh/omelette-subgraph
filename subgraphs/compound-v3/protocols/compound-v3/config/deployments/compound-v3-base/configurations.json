@@ -1,8 +1,0 @@
-{
-  "network": "base",
-  "factoryAddress": "0x45939657d1ca34a8fa39a924b71d28fe8431e581",
-  "startBlock": "2197594",
-  "graftEnabled": false,
-  "subgraphId": "QmQH2FJmgwK9GbhuXU1xWX7v2jrT3Lz2KjTTbT3oKz7uVS",
-  "graftStartBlock": 11920856
-}

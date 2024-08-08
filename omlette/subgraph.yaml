@@ -1,0 +1,32 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: mainnet
+    source:
+      address: "0xf74b84a12742235e6A3b312A0DFeFF7fba5955ce"
+      abi: Contract
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - UserAdded
+        - RelayerAdded
+        - RelayerRemoved
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: UserAdded(indexed address,indexed uint256)
+          handler: handleUserAdded
+        - event: RelayerAdded(indexed address)
+          handler: handleRelayerAdded
+        - event: RelayerRemoved(indexed address)
+          handler: handleRelayerRemoved
+      file: ./src/contract.ts
