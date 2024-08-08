@@ -1,24 +1,30 @@
-type UserAdded @entity(immutable: true) {
-  id: Bytes!
-  userAddress: Bytes! # address
-  nullifier: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type User {
+  id: ID!
+  userAddress: Bytes!
+  nullifier: BigInt!
+  nullifierSeed: BigInt!
+  revealedData: [BigInt!]!
 }
 
-type RelayerAdded @entity(immutable: true) {
-  id: Bytes!
-  relayer: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Query {
+  users: [User!]!
+  user(id: ID!): User
 }
 
-type RelayerRemoved @entity(immutable: true) {
-  id: Bytes!
-  relayer: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Subscription {
+  userAdded(userAddress: Bytes!): User
+}
+
+type Mutation {
+  addUser(
+    userAddress: Bytes!
+    nullifierSeed: BigInt!
+    nullifier: BigInt!
+    timestamp: BigInt!
+    signal: BigInt!
+    revealArray: [BigInt!]!
+    groth16Proof: [BigInt!]!
+    nonce: BigInt!
+    signature: Bytes!
+  ): User
 }
