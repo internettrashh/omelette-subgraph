@@ -30,9 +30,13 @@
     ],
     "name": "getUserByAddress",
     "outputs": [
-      { "internalType": "uint", "name": "nullifier", "type": "uint" },
-      { "internalType": "uint", "name": "nullifierSeed", "type": "uint" },
-      { "internalType": "uint[4]", "name": "revealedData", "type": "uint[4]" }
+      { "internalType": "uint256", "name": "nullifier", "type": "uint256" },
+      { "internalType": "uint256", "name": "nullifierSeed", "type": "uint256" },
+      {
+        "internalType": "uint256[4]",
+        "name": "revealedData",
+        "type": "uint256[4]"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
